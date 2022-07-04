@@ -1,0 +1,882 @@
+:root {
+    --light-background:#f4f5fb;
+    --theme-light: #eceef9;
+    --theme-medium: #d0d5f0;
+    --theme-medium-dark: #7070c2;
+    --theme-dark: #242452;
+    --theme-validation: #94e085;
+    --theme-validation-hover: #245d18;
+    --theme-active: #6a6afb;
+}
+
+.squaredButton{
+  border: none;
+  border-radius: 4px;
+  background-color: var(--theme-medium);
+  box-shadow: inset 2px 2px 5px #9497aa,
+              inset -2px -2px 5px #ffffff;
+}
+
+.squaredButton:hover{
+  background-color: var(--theme-medium-dark);
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 3px 3px 6px #5f5fa5,
+            inset -3px -3px 6px #8181df;
+}
+
+.windowTitle{
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  width:100%;
+  top: -17px;
+  background: var(--theme-medium);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  color: var(--theme-dark);
+  
+}
+
+body {
+  padding: 20px;
+}
+ul { 
+  list-style: none;
+  margin: 5px 0px;
+}
+li {
+  padding: 0 25px;
+  margin: 1px 0;
+}
+
+.arrow {
+  margin: 1em ;
+  position: relative;
+}
+
+.arrow::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border: .4em solid transparent;
+  border-left-color: gray;
+  transform-origin: 0 50%;
+  transition: transform .25s;
+  position: absolute;
+}
+
+.arrow.down::before {
+  transform: rotate(90deg);
+  transition: transform .25s;
+}
+
+.ocInfos{
+  display: none;
+  position: fixed;
+  top: 150px;
+  left: 600px;
+  width: 600px;
+  border-radius: 8px;
+  background: var(--theme-light);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding-bottom: 2%;
+  z-index: 98;
+}
+
+.ocInfosTitle{
+  @extend .windowTitle;
+}
+
+.ocName::before {
+  content: "Name: ";
+  font-weight: bold;
+}
+
+.ocStandard::before {
+  content: "Taxonomy Standard Name: ";
+  font-weight: bold;
+}
+
+.ocPath::before {
+  content: "Path: ";
+  font-weight: bold;
+}
+
+.ocDescription::before {
+  content: "Description: ";
+  font-weight: bold;
+}
+
+.ocRange::before {
+  content: "Value Range: ";
+  font-weight: bold;
+}
+
+.oddTaxoView{
+  top: 100px;
+  height: 600px;
+  overflow: scroll;
+  background-color: var(--light-background);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.autonomyFunctionsTaxoView{
+  top: 100px;
+  height: 600px;
+  overflow: scroll;
+  background-color: var(--light-background);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.topnav {
+  margin-top: -15px;
+  height: 55px;
+  background-color: var(--theme-light);
+  position: relative;
+  border-radius: 5px;
+  min-width: 240px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+}
+
+.topnav input[type=text] {
+  font-size: 17px;
+  width: 300px;
+  overflow: visible;
+  color: var(--theme-dark);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.topnav ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 55%;
+}
+
+#ul-tab-hara {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  background: var(--theme-medium);
+  border-radius: 5px;
+}
+
+.topnav ul li {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.topnav i {
+  fill: var(--theme-medium);
+  height: 1.2em;
+  vertical-align: bottom;
+  margin-right: 0.2em;
+  transition: all 0.2s ease-in-out;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: var(--theme-dark);
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.topnav a:hover,
+.topnav a:focus,
+.topnav a:active {
+  outline: 0;
+  color: var(--theme-medium-dark);
+}
+
+.HARAtableContainer a{
+  color: var(--theme-dark)
+}
+
+.HARAtableContainer a:hover,
+.HARAtableContainer a:focus,
+.HARAtableContainer a:active {
+  outline: 0;
+  color: var(--theme-medium-dark);
+}
+
+input[type="radio"]:nth-of-type(1):checked
+  ~ ul
+  > li:nth-child(1)
+  a{
+  outline: 0;
+  color: var(--theme-active);
+}
+
+input[type="radio"]:nth-of-type(2):checked
+  ~ ul
+  > li:nth-child(2)
+  a{
+  outline: 0;
+  color: var(--theme-active);
+}
+
+input[type="radio"]:nth-of-type(3):checked
+  ~ ul
+  > li:nth-child(3)
+  a{
+  outline: 0;
+  color: var(--theme-active);
+}
+
+input[type="radio"]:nth-of-type(4):checked
+  ~ ul
+  > li:nth-child(4)
+  a{
+  outline: 0;
+  color: var(--theme-active);
+}
+
+.topnavTitle{
+  position:relative;
+  top:15px;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+    float: right;
+  padding: 6px;
+  border: none;
+  margin-top: -25px;
+  margin-right: 120px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  width: 420px;
+  margin-top: -215px;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: var(--theme-medium);
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: var(--theme-medium) !important;
+  color: black;
+}
+
+.autocompleteOCRestriction-items {
+  position: relative;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*reposition the autocomplete items to be under the cursor:*/
+}
+.autocompleteOCRestriction-items div {
+  cursor: pointer;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocompleteOCRestriction-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+
+// .ocExceptions{
+//   top: 10px;
+//   left: 20px;
+//   position: relative;
+//   height: 110px;
+//   width: 90%;
+//   border-radius: 8px;
+//   background: var(--theme-light);
+//   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+// }
+
+.ocExceptionsTitle{
+  @extend .windowTitle;
+}
+
+.addOCException {
+  padding:0.5em;
+  margin-left:0.5em;
+  color: green;
+  @extend .squaredButton
+}
+
+.removeOCException {
+  padding:0.5em;
+  margin-left:0.5em;
+  color: red;
+  @extend .squaredButton
+}
+
+.editOCException {
+  padding:0.5em;
+  margin-left:0.5em;
+  color: var(--theme-dark);
+  @extend .squaredButton
+}
+
+
+.groupeButtonsOCExceptions{
+  right: 30px;
+  top: 50px;
+  position: absolute;
+  display: none
+}
+
+.groupeButtonsImportExport{
+  right: 30px;
+  top: 17px;
+  position: absolute;
+  z-index: 97;
+  
+}
+
+.importButton{
+  color: var(--theme-dark);
+  padding:0.5em;
+  margin-left:0.5em;
+  
+  @extend .squaredButton
+  
+}
+
+.exportButton{
+  color: var(--theme-dark);
+  padding:0.5em;
+  margin-left:0.5em;
+  
+  @extend .squaredButton
+  
+}
+
+.cancelButton{
+  padding: 0.5em;
+  padding-bottom: 0.3em;
+  margin-left: 0.5em;
+  color: red;
+  @extend .squaredButton;
+}
+.ocExceptionCreationCancel{
+  @extend .cancelButton;
+}
+
+.ocExceptionEditionCancel{
+  @extend .cancelButton;
+}
+
+.scenarioCreationCancel{
+  @extend .cancelButton;
+}
+
+.submitButton{
+  padding: 0.5em;
+  padding-bottom: 0.3em;
+  color: green;
+  @extend .squaredButton;
+}
+
+.ocExceptionCreationSubmit{
+  @extend .submitButton;
+}
+
+.ocExceptionEditionSubmit{
+  @extend .submitButton;
+}
+
+.scenarioCreationSubmit{
+  @extend .submitButton;
+}
+
+.outOddOCExceptions{
+  left:50px;
+  font-weight: bold;
+  position: absolute;
+  display: none;
+}
+
+.noAFRequirementMessage{
+  left:50px;
+  font-weight: bold;
+  position: absolute;
+  display: none;
+  color: green;
+}
+
+.window{
+  border-radius: 8px;
+  background: var(--theme-light);
+  box-shadow:  16px 16px 32px #cfcfcf,
+             -16px -16px 32px #ffffff;
+  display: none;
+  position: fixed;
+  z-index: 100;
+}
+
+.windowOcException{
+  @extend .window;
+  top: 100px;
+  left: 100px;
+  width: 500px;
+  height: 350px;
+}
+
+.windowBottom{
+  @extend .window;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  width: 90%;
+  height: 110px;
+  display: none;
+}
+
+.windowMainOcException{
+  @extend .windowBottom;
+}
+
+.windowAFRequirements{
+   @extend .windowBottom;
+}
+
+.windowAFRequirementsTitle{
+  @extend .windowTitle;
+}
+
+.ocExceptionCreation {
+  @extend .windowOcException; 
+}
+
+.ocExceptionCreationTitle {
+  @extend .windowTitle;
+}
+
+.ocExceptionEdition {
+  @extend .windowOcException;
+}
+
+.scenarioCreation {
+  @extend .window;
+  top: 100px;
+  right: 20px;
+  width: 450px;
+  height: 350px;
+  z-index: 100;
+}
+
+.scenarioCreationTitle {
+  @extend .windowTitle;
+}
+
+.ocExceptionEditionTitle {
+  @extend .windowTitle;
+}
+
+.ocExceptionSyntaxError {
+  position: relative;
+  background: red;
+  color: white;
+  height: 30px;
+  width:80%;
+  left: 10px;
+  top: -50px;
+  display: none;
+}
+
+.ocExceptionSyntaxError::before {
+  content: "Error: ";
+  font-weight: bold;
+}
+
+.buttonsWindow{
+  position: relative;
+  left: 80%;
+  bottom: 10px;
+}
+
+.groupeButtonsOCExceptionCreation{
+  @extend .buttonsWindow;
+}
+
+
+.groupeButtonsOCExceptionEdition{
+  @extend .buttonsWindow;
+}
+
+.groupeButtonsScenarioCreation{
+  @extend .buttonsWindow;
+}
+
+// .ocExceptionCreationCancel{
+//   float: right;
+// }
+
+.ocExceptionCreationInput {
+  position: relative;
+  resize: none;
+  top: -20px;
+  left:20px;
+  right:50px;
+  width: 80%;
+  height: 70%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: monospace;
+  resize: none;
+}
+
+.ocExceptionEditionInput {
+  position: relative;
+  resize: none;
+  top: -20px;
+  left:20px;
+  right:50px;
+  width: 80%;
+  height: 70%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: monospace;
+  resize: none;
+}
+
+
+.scenarioCreationInput {
+  position: relative;
+  resize: none;
+  top: -20px;
+  left:20px;
+  right:50px;
+  width: 80%;
+  height: 70%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: monospace;
+  resize: none;
+}
+
+
+.listOCExceptions{
+  position: relative;
+  top: 10px;
+  position: absolute;
+  display: none;
+  overflow: scroll;
+  width: 85%;
+  top: 25px;
+  height: 70px
+}
+
+.listAFRequirements{
+  position: relative;
+  top: 10px;
+  position: absolute;
+  display: none;
+  overflow: scroll;
+  width: 85%;
+  top: 25px;
+  height: 70px;
+  color: red;
+}
+
+.nextButton{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: var(--theme-validation);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 99;
+}
+
+.nextButton:hover {
+  background-color: var(--theme-validation-hover);
+  transition: all 0.2s ease-in-out;
+}
+
+.backButton{
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: var(--theme-light);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 99;
+}
+
+.backButton:hover {
+  background-color: var(--theme-medium-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+.autonomyFunctionsTaxoView{
+  display:none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+$base-spacing-unit: 24px;
+$half-spacing-unit: $base-spacing-unit / 2;
+
+$color-alpha: #1772FF;
+$color-form-highlight: #EEEEEE;
+
+.HARAtableContainer {
+  width:100%;
+  top: 80px;
+  position: absolute;
+  margin-right:auto;
+	margin-left:auto;
+	justify-content:center;
+	align-items:center;
+  
+  display: none;
+}
+
+.HARAtableContainer input{
+  padding: 2em;
+}
+
+.table {
+	width:100%;
+	border:1px solid $color-form-highlight;
+  overflow: scroll;
+  background: var(--light-background);
+}
+
+.table-header {
+	display:flex;
+	width:100%;
+	background: var(--theme-medium-dark);
+	padding:($half-spacing-unit * 1.4) 0;
+}
+
+.header_item {
+  color:white;
+  display:inline-block;
+	padding-left:$base-spacing-unit;
+	padding-right:$base-spacing-unit;
+  position: relative;
+  text-decoration: none;
+}
+
+.table-row {
+	display:flex;
+	width:100%;
+	padding:($half-spacing-unit * 1.4) 0;
+	
+	&:nth-of-type(odd) {
+		background:var(--theme-light);
+	}
+  
+}
+
+.table-data{
+  font-size: 14px;
+}
+
+.table-data, .header_item {
+	flex: 1 1 20%;
+	text-align:center;
+}
+
+.table-content{
+  overflow: scroll;
+  height: 600px;
+  width: 100%
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: gray;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover{
+  background-color: #ddd;
+}
+
+#severity-row{
+  display:none;
+}
+
+#controlability-row{
+  display:none;
+}
+
+#exposure-row{
+  display:none;
+}
+
+.addScenarioHA{
+  margin-top: 5px;
+  padding:0.5em;
+  border-radius: 9px;
+  background: var(--theme-light);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 99;
+}
+
+.addScenarioHA:hover{
+  background-color: var(--theme-medium-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+#researchInput{
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 6px;
+  margin-bottom: 60%;
+  
+  box-shadow:  3px 3px 5px #b1b5cc,
+             -3px -3px 5px #eff5ff;
+  
+}
+
+.OCResearchSubmit{
+  border: none;
+  padding-top: 6.5px;
+  padding-bottom: 6.5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: -4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: var(--theme-medium);
+  box-shadow:  3px 3px 5px #b1b5cc,
+             -3px -3px 5px #eff5ff;
+}
+
+.OCResearchSubmit:hover{
+  background-color: var(--theme-medium-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+.afConstraint{
+  
+}
+
+// .comment{
+//   color: var(--theme-dark);
+//   top: 80px;
+//   right: 30px;
+//   width: 430px;
+//   height: 350px;
+  
+//   position: fixed;
+//   z-index: 100;
+//   font-size: 30px;
+//   font-weight: bold;
+// }
+
+.comment{
+  color: var(--theme-dark);
+  top: 400px;
+  left: 50px;
+  width: 1200px;
+  background-color: var(--light-background);
+  position: fixed;
+  z-index: 100;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.comment a{
+  font-size: 25px;
+}
+
+.comment a br{
+   display: block;
+   content: "";
+   margin: 15px 0;
+}
+
+.comment br{
+   display: block;
+   content: "";
+   margin: 20px 0;
+}
